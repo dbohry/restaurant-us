@@ -1,27 +1,29 @@
-package com.danielbohry.restaurantmanagement.infrastructure.restaurant;
+package com.danielbohry.restaurantmanagement.entities.restaurant;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.springframework.data.annotation.Id;
 
-public class RestaurantEntity {
+public class Restaurant {
 
-    private Long id;
+    @Id
+    private String id;
     private String name;
 
-    public RestaurantEntity() {
+    public Restaurant() {
     }
 
-    public RestaurantEntity(Long id, String name) {
+    public Restaurant(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,7 +41,7 @@ public class RestaurantEntity {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        RestaurantEntity that = (RestaurantEntity) o;
+        Restaurant that = (Restaurant) o;
 
         return new EqualsBuilder()
                 .append(id, that.id)

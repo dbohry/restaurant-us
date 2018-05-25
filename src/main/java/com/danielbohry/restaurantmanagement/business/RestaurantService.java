@@ -1,12 +1,12 @@
 package com.danielbohry.restaurantmanagement.business;
 
-import com.danielbohry.restaurantmanagement.infrastructure.restaurant.RestaurantEntity;
-import com.danielbohry.restaurantmanagement.infrastructure.restaurant.RestaurantRepository;
+import com.danielbohry.restaurantmanagement.entities.restaurant.Restaurant;
+import com.danielbohry.restaurantmanagement.entities.restaurant.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -18,12 +18,20 @@ public class RestaurantService {
         this.repository = repository;
     }
 
-    public List<RestaurantEntity> getAll() {
-        return Collections.singletonList(new RestaurantEntity(1L, "test"));
+    public List<Restaurant> getAll() {
+        return repository.findAll();
     }
 
-    public RestaurantEntity get(Long id) {
-        return new RestaurantEntity(id, "test");
+    public Optional<Restaurant> get(String id) {
+        return repository.findById(id);
+    }
+
+    public Restaurant save(Restaurant restaurant) {
+        return repository.save(restaurant);
+    }
+
+    public Restaurant update(Restaurant restaurant) {
+        return repository.save(restaurant);
     }
 
 }
