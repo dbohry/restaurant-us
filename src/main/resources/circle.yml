@@ -1,5 +1,5 @@
 deployment:
-    tst:
-        branch: master
-        heroku:
-            appname: restaurant-us
+  tst:
+    branch: master
+    heroku:
+      appname: restaurant-us
