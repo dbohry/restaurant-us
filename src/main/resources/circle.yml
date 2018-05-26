@@ -1,5 +1,5 @@
 deployment:
-  tst:
+  staging:
     branch: master
     heroku:
       appname: restaurant-us
