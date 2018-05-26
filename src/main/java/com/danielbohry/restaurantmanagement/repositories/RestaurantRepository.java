@@ -1,5 +1,6 @@
-package com.danielbohry.restaurantmanagement.entities.restaurant;
+package com.danielbohry.restaurantmanagement.repositories;
 
+import com.danielbohry.restaurantmanagement.entities.Restaurant;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

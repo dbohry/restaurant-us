@@ -1,13 +1,12 @@
-package com.danielbohry.restaurantmanagement.business;
+package com.danielbohry.restaurantmanagement.services;
 
-import com.danielbohry.restaurantmanagement.entities.restaurant.Restaurant;
-import com.danielbohry.restaurantmanagement.entities.restaurant.RestaurantRepository;
+import com.danielbohry.restaurantmanagement.entities.Restaurant;
+import com.danielbohry.restaurantmanagement.repositories.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
-import java.util.MissingResourceException;
 import java.util.Optional;
 
 @Service
