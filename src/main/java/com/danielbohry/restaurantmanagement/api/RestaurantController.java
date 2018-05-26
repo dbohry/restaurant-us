@@ -40,9 +40,10 @@ public class RestaurantController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @PutMapping
-    public ResponseEntity<Restaurant> update(@RequestBody Restaurant restaurant) {
-        Restaurant response = service.update(restaurant);
+    @PutMapping("/{id}")
+    public ResponseEntity<Restaurant> update(@PathVariable("id") String id,
+                                             @RequestBody Restaurant restaurant) {
+        Restaurant response = service.update(id, restaurant);
         return ResponseEntity.ok().body(response);
     }
 

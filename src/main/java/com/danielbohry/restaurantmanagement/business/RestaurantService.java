@@ -4,8 +4,10 @@ import com.danielbohry.restaurantmanagement.entities.restaurant.Restaurant;
 import com.danielbohry.restaurantmanagement.entities.restaurant.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
+import java.util.MissingResourceException;
 import java.util.Optional;
 
 @Service
@@ -30,8 +32,11 @@ public class RestaurantService {
         return repository.save(restaurant);
     }
 
-    public Restaurant update(Restaurant restaurant) {
-        return repository.save(restaurant);
+    public Restaurant update(String id, Restaurant restaurant) {
+        if (repository.existsById(id))
+            return repository.save(restaurant);
+        else
+            throw new ResourceAccessException("This restaurant do not exists");
     }
 
     public void delete(String id) {
