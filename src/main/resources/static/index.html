@@ -12,8 +12,9 @@
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Restaurant Manager</h1>
+
 <div class="container">
+    <h1>Restaurant Manager</h1>
     <div id="wrapper">
         <div class="unauthenticated">
             <a class="btn" href="/login">Login</a>
@@ -23,16 +24,20 @@
             <br />
             Your token is: <input type="text" id="token" />
             <button onclick="copyMyToken()" class="btn">Copy token</button>
-            <div>
-                <button onClick="logout()" class="btn" >Logout</button>
-            </div>
+            <button onClick="logout()" class="btn" >Logout</button>
             <div>
                 <a href="/swagger-ui.html" target="_blank" class="btn" >Go Swagger</a>
             </div>
         </div>
     </div>
-</div>
 
+    <div>
+        <h2>List of restaurants:</h2>
+        <ul id="restaurant-list" class="list-group">
+        </ul>
+    </div>
+
+</div>
 <script type="text/javascript">
     $.get("/user", function(data) {
         $("#user").html(data.userAuthentication.details.name);
@@ -49,6 +54,12 @@
         });
         return true;
     }
+
+    var restaurants = $.get("/api/restaurant", function(data) {
+        $.each(data, function(i, restaurant) {
+            $("#restaurant-list").append('<li class="list-group-item">' + restaurant.name + '</li>');
+        });
+    });
 
     var copyMyToken = function() {
         document.getElementById("token").select();
