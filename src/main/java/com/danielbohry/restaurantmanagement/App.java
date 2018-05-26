@@ -23,9 +23,7 @@ public class App extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/api/restaurant", "/login", "/webjars/**").permitAll()
                 .antMatchers("/api/**").authenticated()
-//                .anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/").permitAll()
-//                .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         ;
     }
 
