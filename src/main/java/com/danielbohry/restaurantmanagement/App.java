@@ -22,7 +22,7 @@ public class App extends WebSecurityConfigurerAdapter {
                 .antMatcher("/**")
                 .authorizeRequests()
                 .antMatchers("/", "/api/restaurant", "/login", "/webjars/**").permitAll()
-                .antMatchers("/api/**").authenticated()
+                .antMatchers("/api/**", "/logout").authenticated()
                 .and().logout().logoutSuccessUrl("/").permitAll()
         ;
     }
