@@ -34,4 +34,8 @@ public class RestaurantService {
         return repository.save(restaurant);
     }
 
+    public void delete(String id) {
+        repository.deleteById(id);
+    }
+
 }
