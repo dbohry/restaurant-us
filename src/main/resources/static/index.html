@@ -15,21 +15,6 @@
 
 <div class="container">
     <h1>Restaurant Manager</h1>
-    <div id="wrapper">
-        <div class="unauthenticated">
-            <a class="btn" href="/login">Login</a>
-        </div>
-        <div class="authenticated" style="display:none">
-            Logged in as: <span id="user"></span>
-            <br />
-            Your token is: <input type="text" id="token" />
-            <button onclick="copyMyToken()" class="btn">Copy token</button>
-            <button onClick="logout()" class="btn" >Logout</button>
-            <div>
-                <a href="/swagger-ui.html" target="_blank" class="btn" >Go Swagger</a>
-            </div>
-        </div>
-    </div>
 
     <div>
         <h2>List of restaurants:</h2>
