@@ -39,24 +39,7 @@
 
 </div>
 <script type="text/javascript">
-    $.get("/user", function(data) {
-        $("#user").html(data.userAuthentication.details.name);
-        console.log(data);
-        $("#token").val(data.details.tokenValue);
-        $(".unauthenticated").hide()
-        $(".authenticated").show()
-    });
-
-    var logout = function() {
-        $.post("/logout", function() {
-            $("#user").html('');
-            $(".unauthenticated").show();
-            $(".authenticated").hide();
-        });
-        return true;
-    }
-
-    var restaurants = $.get("/api/restaurant", function(data) {
+    var restaurants = $.get("/api/restaurants", function(data) {
         $.each(data, function(i, restaurant) {
             $("#restaurant-list").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + restaurant.name + '<span class="badge badge-primary badge-pill">' + restaurant.id + '</span></li>');
         });

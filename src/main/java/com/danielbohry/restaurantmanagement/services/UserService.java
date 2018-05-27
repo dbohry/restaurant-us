@@ -23,14 +23,6 @@ public class UserService implements UserDetailsService {
         this.repository = repository;
     }
 
-    public List<User> findAll() {
-        return repository.findAll();
-    }
-
-    public User save(User user) {
-        return repository.save(user);
-    }
-
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         Optional<User> entity = repository.findByUsername(name);

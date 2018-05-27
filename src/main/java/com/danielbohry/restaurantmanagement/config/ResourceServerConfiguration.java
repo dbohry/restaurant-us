@@ -20,8 +20,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.
-                anonymous().disable()
+        http
                 .authorizeRequests()
                 .antMatchers("/", "/api/restaurants").permitAll()
                 .antMatchers("/api/restaurants/**", "/api/users/**").authenticated()
